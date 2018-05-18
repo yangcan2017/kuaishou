@@ -11,10 +11,10 @@ from sklearn.preprocessing import OneHotEncoder,MinMaxScaler
 
 np.random.seed(0)
 
-train_inte = pd.read_csv('input/train_interaction.txt', sep='\t')
+train_inte = pd.read_csv('input/train_interaction.txt', sep='\t', header=None)
 train_inte.columns = ['user_id', 'photo_id', 'click', 'like', 'follow', 'time', 'playing_time', 'duration_time']
 
-test_inte = pd.read_csv('input/test_interaction.txt', sep='\t')
+test_inte = pd.read_csv('input/test_interaction.txt', sep='\t', header=None)
 test_inte.columns = ['user_id', 'photo_id', 'time', 'duration_time']
 
 skf = StratifiedKFold(n_splits=5, shuffle=True, random_state=0).split(train_inte['user_id'], train_inte['click'])
